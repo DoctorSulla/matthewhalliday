@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Matthew Halliday.dev
+	<title>Matthew Halliday.dev</title>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
