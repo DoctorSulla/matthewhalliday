@@ -10,10 +10,10 @@
 </svelte:head>
 
 <nav class="flex">
-<a class="text-violet-500 px-1" href="#">Home</a>
-<a  class="text-violet-500 px-1" href="#">Photos</a>
-<a class="text-violet-500 px-1" href="#">About Me</a>
+	<a class="px-1 text-violet-500" href="/">Home</a>
+	<a class="px-1 text-violet-500" href="/photos">Photos</a>
+	<a class="px-1 text-violet-500" href="/about">About Me</a>
 </nav>
-<main class="w-6xl m-auto">
-{@render children?.()}
+<main class="m-auto w-6xl">
+	{@render children?.()}
 </main>
