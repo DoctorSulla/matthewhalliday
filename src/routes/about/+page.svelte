@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>About</title>
+</svelte:head>
+
 <h1 class="text-center text-3xl text-purple-500">About Me</h1>
 <p>
 	I was born in 1991 in the little known island nation of Vanuatu where my dad was doing some
