@@ -16,7 +16,13 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	  "routes": [
+	    {
+	      "pattern": "matthew.halliday.dev",
+	      "custom_domain": true
+	    }
+	  ]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
