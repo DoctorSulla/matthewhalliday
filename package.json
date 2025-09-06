@@ -35,5 +35,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"@cloudflare/workers-types": "^4.20250906.0"
 	}
 }

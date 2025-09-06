@@ -17,12 +17,19 @@
 	"observability": {
 		"enabled": true
 	},
-	  "routes": [
-	    {
-	      "pattern": "matthew.halliday.dev",
-	      "custom_domain": true
-	    }
-	  ]
+	"routes": [
+		{
+			"pattern": "matthew.halliday.dev",
+			"custom_domain": true
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "halliday_db",
+			"database_name": "halliday-db",
+			"database_id": "0893561c-e38f-42e1-b0dd-78856186cef7"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
