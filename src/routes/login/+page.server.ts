@@ -34,26 +34,31 @@ function randomKey(): string {
 async function checkCookie(cookie_value: string, platform): boolean {
 	try {
 		const query = `
-SELECT * FROM SESSIONS WHERE session_token='${cookie_value}'
+SELECT * FROM SESSIONS WHERE session_token=?
 		`;
 
-		const res = await platform.env.halliday_db.prepare(query).all();
+		const res = await platform.env.halliday_db.prepare(query).bind(cookie_value).all();
 		if (res.results[0].expiry > new Date().getTime()) {
 			return true;
 		}
 		return false;
 	} catch (err) {
 		console.error('Error querying D1 sessions:', err);
+		return false;
 	}
 }
 
 async function storeSession(session_key: string, platform) {
 	try {
+		const expiry = new Date().getTime() + 3600 * 24 * 1000;
 		const query = `
-INSERT INTO SESSIONS(user,expiry,session_token) values('admin',${new Date().getTime() + 3600 * 24 * 1000},'${session_key}')
+INSERT INTO SESSIONS(user,expiry,session_token) values(?,?,?)
 		`;
 
-		const res = await platform.env.halliday_db.prepare(query).all();
+		const res = await platform.env.halliday_db
+			.prepare(query)
+			.bind('admin', expiry, session_key)
+			.all();
 	} catch (err) {
 		console.error('Error querying D1 sessions:', err);
 	}
