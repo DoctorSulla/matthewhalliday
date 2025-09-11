@@ -1,6 +1,7 @@
 import { redirect } from '@sveltejs/kit';
-import { createHash, randomBytes, scryptSync } from 'crypto';
+import { randomBytes, scryptSync } from 'crypto';
 import type { RequestEvent } from '@sveltejs/kit';
+import { checkCookie } from '$lib/server/auth';
 
 interface SessionRow {
 	user: string;
@@ -57,11 +58,12 @@ export const actions = {
 				httpOnly: true,
 				secure: true,
 				sameSite: 'strict',
-				maxAge: 86400 // 24 hours
+				maxAge: 86400
 			});
 		} else {
-			console.log(derivedKey.toString('hex'));
-			console.log(hashedPassword);
+			return {
+				error: 'Invalid password'
+			};
 		}
 	}
 };
@@ -69,27 +71,6 @@ export const actions = {
 function randomKey(): string {
 	let bytes = Buffer.from(randomBytes(128)).toString('base64');
 	return bytes;
-}
-
-async function checkCookie(cookie_value: string, platform: App.Platform): Promise<boolean> {
-	try {
-		const query = `
-SELECT * FROM SESSIONS WHERE session_token=?
-		`;
-
-		const res: D1Result<SessionRow> = await platform.env.halliday_db
-			.prepare(query)
-			.bind(cookie_value)
-			.all();
-		console.log(res);
-		if (res.results && res.results.length > 0 && res.results[0].expiry > new Date().getTime()) {
-			return true;
-		}
-		return false;
-	} catch (err) {
-		console.error('Error querying D1 sessions:', err);
-		return false;
-	}
 }
 
 async function storeSession(session_key: string, platform: App.Platform) {

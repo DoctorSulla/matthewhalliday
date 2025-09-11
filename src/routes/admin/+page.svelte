@@ -1,1 +1,1 @@
-This is my admin page.
+<a href="/admin/blog">Blog</a>
