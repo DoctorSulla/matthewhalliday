@@ -7,9 +7,7 @@
 	"name": "matthewhalliday",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2025-09-05",
-	"compatibility_flags": [
-		"nodejs_als"
-	],
+	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
 	"assets": {
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
@@ -28,6 +26,18 @@
 			"binding": "halliday_db",
 			"database_name": "halliday-db",
 			"database_id": "0893561c-e38f-42e1-b0dd-78856186cef7"
+		}
+	],
+	"secrets_store_secrets": [
+		{
+			"binding": "hashed_password",
+			"store_id": "5702ed96780e438987aa7fd79d98e692",
+			"secret_name": "hashed_password"
+		},
+		{
+			"binding": "salt",
+			"store_id": "5702ed96780e438987aa7fd79d98e692",
+			"secret_name": "salt"
 		}
 	]
 	/**

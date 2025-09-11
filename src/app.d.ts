@@ -1,20 +1,22 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
-    namespace App {
-        // interface Error {}
-        // interface Locals {}
-        // interface PageData {}
-        interface Platform {
-            env: {
-                halliday_db: D1Database;
-            };
-            context: {
-                waitUntil(promise: Promise<any>): void;
-            };
-            caches: CacheStorage & { default: Cache };
-        }
-    }
+	namespace App {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		interface Platform {
+			env: {
+				halliday_db: D1Database;
+				hashed_password: KVNamespace;
+				salt: KVNamespace;
+			};
+			context: {
+				waitUntil(promise: Promise<any>): void;
+			};
+			caches: CacheStorage & { default: Cache };
+		}
+	}
 }
 
-export { };
+export {};
