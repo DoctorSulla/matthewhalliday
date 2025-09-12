@@ -1,4 +1,4 @@
-<form>
+<form method="POST">
 	<input
 		class="my-5 block w-9/12 border-1 border-solid p-1"
 		type="text"

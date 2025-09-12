@@ -6,4 +6,4 @@
 </script>
 
 <h1>Blog</h1>
-<!-- <div>{JSON.stringify(data)}</div> -->
+<div>{JSON.stringify(data)}</div>
