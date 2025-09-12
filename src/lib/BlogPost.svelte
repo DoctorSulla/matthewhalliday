@@ -1,6 +1,15 @@
 <script lang="ts">
 	import type { Post } from '$lib/types';
 	let { post }: { post: Post } = $props();
+	const options = {
+		weekday: 'short',
+		year: '2-digit',
+		month: 'short',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric'
+	};
+	const dateFormat = new Intl.DateTimeFormat('en-GB', options);
 
 	function formatDate(unformattedDate: string): string {
 		let date = new Date(unformattedDate);
@@ -14,6 +23,6 @@
 
 <div class="my-2">
 	<h1 class="text-3xl font-bold text-red-300">{post.title}</h1>
-	<span class="italic">{formatDate(post.date)}</span>
+	<span class="italic">{dateFormat.format(new Date(post.date))}</span>
 	<p class="text-xl">{@html post.content}</p>
 </div>
