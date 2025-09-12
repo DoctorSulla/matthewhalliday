@@ -20,7 +20,7 @@ export const actions = {
 		let formData = await request.formData();
 		let postDate = new Date().toString();
 		let title = formData.get("title");
-		let body = formData.get("body");
+		let content = formData.get("body");
 
 		if (!title || !body) {
 			return {
@@ -36,7 +36,7 @@ INSERT INTO POSTS(date,title,content) values(?,?,?)
 
 			const res = await platform.env.halliday_db
 				.prepare(query)
-				.bind(postDate, title, body)
+				.bind(postDate, title, content)
 				.all();
 		} catch (err) {
 			console.error('Error querying D1 sessions:', err);

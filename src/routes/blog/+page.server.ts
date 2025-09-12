@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ platform }) => {
 		const query = `
 			SELECT id, date, title, content
 			FROM posts
-			ORDER BY date DESC
+			ORDER BY id desc
 		`;
 
 		const res = await platform.env.halliday_db.prepare(query).all();
