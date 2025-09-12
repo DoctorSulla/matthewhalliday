@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { randomBytes, scryptSync } from 'crypto';
 import type { RequestEvent } from '@sveltejs/kit';
-import { checkCookie } from '$lib/server/auth';
+import { isAuthed } from '$lib/server/auth';
 
 interface SessionRow {
 	user: string;
@@ -15,8 +15,7 @@ export async function load({ cookies, platform }) {
 			error: 'Platform is not defined'
 		};
 	}
-	let cookie_value = cookies.get('loggedIn');
-	if (cookie_value && (await checkCookie(cookie_value, platform))) {
+	if (await isAuthed(cookies, platform)) {
 		redirect(307, '/admin');
 	}
 }

@@ -1,3 +1,5 @@
+import type { Cookies } from '@sveltejs/kit';
+
 // Interface for a single session row returned from D1
 interface SessionRow {
 	user: string;
@@ -18,7 +20,11 @@ interface D1Result<T = any> {
  * @param platform The platform object containing D1 environment variables.
  * @returns True if the session is valid and active, false otherwise.
  */
-export async function checkCookie(cookie_value: string, platform: App.Platform): Promise<boolean> {
+export async function isAuthed(cookies: Cookies, platform: App.Platform): Promise<boolean> {
+	let cookie_value = cookies.get('loggedIn');
+	if (!cookie_value) {
+		return false;
+	}
 	try {
 		const query = `
 SELECT * FROM SESSIONS WHERE session_token=?
