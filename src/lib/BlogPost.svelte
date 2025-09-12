@@ -12,8 +12,8 @@
 	}
 </script>
 
-<div>
+<div class="my-2">
 	<h1 class="text-3xl font-bold text-red-300">{post.title}</h1>
 	<span class="italic">{formatDate(post.date)}</span>
-	<p class="text-xl">{post.content}</p>
+	<p class="text-xl">{@html post.content}</p>
 </div>
