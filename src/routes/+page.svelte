@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Home</title>
+	<title>Home</title>
 </svelte:head>
 
 <h1 class="text-center text-3xl text-purple-500">Matthew Halliday</h1>

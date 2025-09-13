@@ -24,5 +24,5 @@
 <div class="my-2">
 	<h1 class="text-3xl font-bold text-red-300">{post.title}</h1>
 	<span class="italic">{dateFormat.format(new Date(post.date))}</span>
-	<p class="text-xl">{@html post.content}</p>
+	<p>{@html post.content}</p>
 </div>
