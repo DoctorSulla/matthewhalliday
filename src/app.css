@@ -1,3 +1,10 @@
 @import 'tailwindcss';
 
 p { font-size:1.2rem; margin:10px 0 }
+
+.mukta-regular {
+  font-family: "Mukta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
