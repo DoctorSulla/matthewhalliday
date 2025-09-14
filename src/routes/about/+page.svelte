@@ -1,8 +1,3 @@
-<svelte:head>
-	<title>About</title>
-</svelte:head>
-
-<h1 class="text-center text-3xl text-purple-500">About Me</h1>
 <p>
 	This page gives some information about me personally but with a focus on stuff related to
 	technology and development.

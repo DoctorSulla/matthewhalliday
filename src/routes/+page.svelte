@@ -1,8 +1,3 @@
-<svelte:head>
-	<title>Home</title>
-</svelte:head>
-
-<h1 class="text-center text-3xl text-purple-500">Matthew Halliday</h1>
 <img
 	class="m-auto w-72"
 	alt="Matthew Halliday"

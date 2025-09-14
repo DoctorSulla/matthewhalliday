@@ -7,7 +7,6 @@
 	let posts: Array<Post> = data.posts;
 </script>
 
-<h1 class="text-center text-3xl text-purple-500">Blog</h1>
 {#each posts as post}
 	<BlogPost {post} />
 {/each}
