@@ -23,6 +23,10 @@
 
 <div class="my-2">
 	<h1 class="text-3xl font-bold text-red-300">{post.title}</h1>
-	<span class="italic">{dateFormat.format(new Date(post.date))}</span>
+	<span class="italic"
+		>{new Date(post.date).toString() == 'Invalid Date'
+			? ''
+			: dateFormat.format(new Date(post.date))}</span
+	>
 	<p>{@html post.content}</p>
 </div>

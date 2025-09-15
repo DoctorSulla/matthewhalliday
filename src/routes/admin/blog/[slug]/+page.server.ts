@@ -28,3 +28,37 @@ export const load: PageServerLoad = async ({ params, platform, cookies }) => {
 		error(500);
 	}
 }
+
+export const actions = {
+	default: async ({ request, cookies, platform }) => {
+		if (!(await isAuthed(cookies, platform))) {
+			redirect(307, '/login');
+		}
+		let formData = await request.formData();
+		let title = formData.get('title');
+		let content = formData.get('content');
+		let id = formData.get('id');
+
+		if (!title || !content) {
+			return {
+				error: 'Blog post must have a title and body'
+			};
+		}
+
+		try {
+			const query = `
+UPDATE POSTS set title=?, content=? WHERE id=?
+		`;
+
+			const res = await platform.env.halliday_db
+				.prepare(query)
+				.bind(title, content, id)
+				.all();
+		} catch (err) {
+			console.error('Error querying D1 sessions:', err);
+			return {
+				error: 'Unexpected error updating blog post'
+			};
+		}
+	}
+};

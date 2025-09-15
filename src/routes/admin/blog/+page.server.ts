@@ -19,7 +19,7 @@ export const actions = {
 		let formData = await request.formData();
 		let postDate = new Date().toString();
 		let title = formData.get('title');
-		let content = formData.get('body');
+		let content = formData.get('content');
 
 		if (!title || !content) {
 			return {
