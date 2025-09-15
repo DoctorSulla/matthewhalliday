@@ -30,6 +30,7 @@
 	>
 	<p>{@html post.content}</p>
 </div>
+<a href="/" class="hidden">CSS Hack</a>
 
 <style>
 	p {
