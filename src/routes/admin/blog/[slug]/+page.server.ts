@@ -39,6 +39,12 @@ export const actions = {
 		let content = formData.get('content');
 		let id = formData.get('id');
 
+		if (parseInt(id) == "NaN" || parseInt(id) < 1) {
+			return {
+				error: 'Id must be a positive integer'
+			}
+		}
+
 		if (!title || !content) {
 			return {
 				error: 'Blog post must have a title and body'
@@ -54,6 +60,9 @@ UPDATE POSTS set title=?, content=? WHERE id=?
 				.prepare(query)
 				.bind(title, content, id)
 				.all();
+			return {
+				message: 'Blog post updated successfully'
+			}
 		} catch (err) {
 			console.error('Error querying D1 sessions:', err);
 			return {

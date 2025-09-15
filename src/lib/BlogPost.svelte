@@ -30,3 +30,13 @@
 	>
 	<p>{@html post.content}</p>
 </div>
+
+<style>
+	p {
+		margin: 10px 0;
+	}
+	a {
+		color: blue;
+		text-decoration: underline;
+	}
+</style>
