@@ -21,7 +21,7 @@ export async function load({ cookies, platform }) {
 }
 
 export const actions = {
-	default: async ({ cookies, request, platform }: RequestEvent) => {
+	submit: async ({ cookies, request, platform }: RequestEvent) => {
 		if (!platform || !platform.env) {
 			return {
 				error: 'Platform is not defined'
