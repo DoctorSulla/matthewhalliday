@@ -19,6 +19,27 @@
 		href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP stack</a
 	> which came to dominate the internet for years to come.
 </p>
+<p>
+	Although PHP has been much derided over the years (for some good reasons) it was a very powerful
+	and accessible stack which gave me exposure to lots of fundamental programming concepts and being
+	able to make changes and see them instantly reflected was a very powerful learning tool. I mostly
+	used PHP for little projects related to things that interested me personally, or for family and
+	friends.
+</p>
+<p>
+	Although I have always been interested in computers, for my formal education I did something
+	completely unrelated, studying Philosophy, Politics, and Economics at Lancaster University from
+	2009-2012. I had a great time at Lancaster, gaining a lot of life experience and making some
+	lifelong friends but won't dwell on it too much as I didn't do too much computer related other
+	than building a website for a University newspaper and playing a lot of Age of Empires 3.
+</p>
+<p>
+	I started my professional IT career in 2014 at a consultancy called FDM which provided contractors
+	to various blue chip companies, mostly in Financial Services. I was placed at Barclays where I
+	initially worked as a manual tester. In 2017, I transitioned from a contractor to permanent staff
+	with Barclays and a couple of years later I moved from testing into Solution Architecture where I
+	have worked ever since.
+</p>
 
 <style>
 	a {
